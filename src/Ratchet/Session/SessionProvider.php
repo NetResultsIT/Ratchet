@@ -88,7 +88,7 @@ class SessionProvider implements MessageComponentInterface, WsServerInterface
 
         $conn->Session = new Session(new VirtualSessionStorage($saveHandler, $id, $this->_serializer));
 
-        if (ini_get('session.auto_start')) {
+        if (!ini_get('session.auto_start')) {
             $conn->Session->start();
         }
 
