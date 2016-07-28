@@ -1,5 +1,5 @@
 {
-    "name": "gos/ratchet"
+    "name": "gigib82/ratchet"
   , "type": "library"
   , "description": "PHP WebSocket library"
   , "keywords": ["WebSockets", "Server", "Ratchet", "Sockets"]
