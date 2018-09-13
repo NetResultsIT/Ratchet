@@ -79,7 +79,11 @@ class SessionProvider implements MessageComponentInterface, WsServerInterface
      */
     public function onOpen(ConnectionInterface $conn)
     {
-        if (!isset($conn->WebSocket) || null === ($id = $conn->WebSocket->request->getCookie(ini_get('session.name')))) {
+        $id = $conn->WebSocket->request->getCookie('KCN_PHPSESSID');
+        if (null === $id) {
+            $id = $conn->WebSocket->request->getCookie(ini_get('session.name'));
+        }
+        if (!isset($conn->WebSocket) || null === $id) {
             $saveHandler = $this->_null;
             $id = '';
         } else {
